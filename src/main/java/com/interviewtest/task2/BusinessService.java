@@ -23,8 +23,8 @@ public class BusinessService {
         if (lastCreatedTextFile.isEmpty()) {
             return 0L;
         }
-        final String fileContext = readFile(lastCreatedTextFile.get());
-        return countLines(fileContext);
+        final String fileContent = readFile(lastCreatedTextFile.get());
+        return countLines(fileContent);
     }
 
     @SneakyThrows(IOException.class)
