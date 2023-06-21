@@ -16,5 +16,5 @@ Use **com.interviewtest.task1.Taks1.java** for implementation.
 Business service (com.interviewtest.task2.BusinessService.java) 
 that responsible for calculating number of lines in the last created **.txt** file.
 Required to extend our service to wotk with **.pdf** file. 
-So as the result, service should calculate number of lines in the last **.txt or pdf** file.
+So as the result, service should be able to calculate number of lines in the last **.txt or pdf** file.
 Make sure changes according to **SOLID** principles.
