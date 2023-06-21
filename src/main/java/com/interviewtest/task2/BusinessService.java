@@ -19,12 +19,9 @@ public class BusinessService {
         if (pathToDirectory.isBlank()) {
             throw new IllegalArgumentException("Empty path");
         }
-        final Optional<File> lastCreatedTxtFile = getLastCreatedTxtFile(pathToDirectory);
-        if (lastCreatedTxtFile.isEmpty()) {
-            return 0L;
-        }
-        final String fileContent = readFile(lastCreatedTxtFile.get());
-        return countLines(fileContent);
+        return getLastCreatedTxtFile(pathToDirectory)
+                .map(lastCreatedTxtxFile -> countLines(readFile(lastCreatedTxtxFile)))
+                .orElse(0L);
     }
 
     @SneakyThrows(IOException.class)
