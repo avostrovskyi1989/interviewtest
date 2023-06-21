@@ -17,9 +17,9 @@ public class BusinessService {
 
     public long calculate(@NonNull final String pathToDirectory) {
         if (pathToDirectory.isBlank()) {
-            throw new IllegalArgumentException("Empty folder path");
+            throw new IllegalArgumentException("Empty path");
         }
-        final Optional<File> lastCreatedTextFile = getLastCreatedTxtFiles(pathToDirectory);
+        final Optional<File> lastCreatedTextFile = getLastCreatedTxtFile(pathToDirectory);
         if (lastCreatedTextFile.isEmpty()) {
             return 0L;
         }
@@ -28,7 +28,7 @@ public class BusinessService {
     }
 
     @SneakyThrows(IOException.class)
-    private Optional<File> getLastCreatedTxtFiles(@NonNull final String pathToDirectory) {
+    private Optional<File> getLastCreatedTxtFile(@NonNull final String pathToDirectory) {
         try (Stream<Path> paths = Files.walk(Paths.get(pathToDirectory))) {
             return paths
                     .filter(Files::isRegularFile)
